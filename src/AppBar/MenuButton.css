@@ -1,0 +1,21 @@
+.menu-button,
+.menu-button:visited {
+  color: var(--color-menu-button);
+  font-family: 'Arial', sans-serif;
+  font-size: var(--font-size-menu);
+  margin: 15px;
+}
+
+.menu-button:hover {
+  color: var(--color-menu-button-hover);
+}
+
+.menu-button:active {
+  color: var(--color-menu-button-active);
+}
+
+@media screen and (max-width: 550px) {
+  .menu-button {
+    margin: 2.72vw;
+  }
+}

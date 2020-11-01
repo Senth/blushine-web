@@ -1,0 +1,16 @@
+.dynmap {
+  position: fixed;
+  width: 100%;
+  border: none;
+  margin: 110px 0 0 0;
+  height: calc(100vh - 110px);
+  padding: 0;
+  background-color: #ffffff22;
+}
+
+@media screen and (max-width: 550px) {
+  .dynmap {
+    height: calc(100vh - 20vw);
+    margin: 20vw 0 0 0;
+  }
+}

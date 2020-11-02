@@ -32,7 +32,7 @@ const HomePage: React.FC<Props> = (props) => {
         creative before you build them on the server.
       </p>
       <p>
-        <a href='/saves/current-server-world.tgz'>Download Snapshot</a>
+        <a href='/saves/blushine-world-snapshot.tgz'>Download Snapshot</a>
       </p>
     </div>
   )

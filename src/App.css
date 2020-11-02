@@ -1,10 +1,18 @@
-.content {
-  padding: 110px 30px 30px 30px;
+@media screen and (min-width: 551px) {
+  .content {
+    padding: 110px 30px 30px 30px;
+  }
+  dd {
+    margin-left: 40px;
+  }
 }
 
 @media screen and (max-width: 550px) {
   .content {
-    margin: 20vw 5.4545vw 5.4545vw 5.4545vw;
+    padding: calc(18.18vw + 10px) 5.4545vw 5.4545vw 5.4545vw;
+  }
+  dd {
+    margin-left: 7.2727vw;
   }
 }
 
@@ -32,10 +40,22 @@ dt {
   font-weight: bold;
 }
 
-iframe.tutorial {
-  display: block;
-  border: none;
-  margin: auto;
-  width: 560px;
-  height: 315px;
+@media screen and (max-width: 860px) {
+  iframe.tutorial {
+    display: block;
+    border: none;
+    margin: auto;
+    width: calc(65.17vw);
+    height: calc(36.63vw);
+  }
+}
+
+@media screen and (min-width: 861px) {
+  iframe.tutorial {
+    display: block;
+    border: none;
+    margin: auto;
+    width: 560px;
+    height: 315px;
+  }
 }

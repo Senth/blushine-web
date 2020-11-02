@@ -44,7 +44,7 @@ dt {
   iframe.tutorial {
     display: block;
     border: none;
-    margin: auto;
+    margin: none;
     width: calc(65.17vw);
     height: calc(36.63vw);
   }
@@ -54,7 +54,7 @@ dt {
   iframe.tutorial {
     display: block;
     border: none;
-    margin: auto;
+    margin: 0;
     width: 560px;
     height: 315px;
   }

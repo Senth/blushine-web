@@ -154,6 +154,10 @@ class PlayerDirt extends PlayerCommand {
       facing: { horizontal: 90, vertical: 65 },
     })
   }
+
+  start(): string[] {
+    return [`/player ${this.player} use continuous`, `/player ${this.player} attack continuous`]
+  }
 }
 
 class PlayerPigman extends PlayerCommand {

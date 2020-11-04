@@ -2,6 +2,7 @@
 
 # Other
 .vscode
+/*/src/config.*.ts
 
 # dependencies
 /*/node_modules

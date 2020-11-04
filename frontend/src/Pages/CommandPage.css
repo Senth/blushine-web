@@ -1,0 +1,80 @@
+.spawn {
+  color: #76ff03;
+}
+
+.spawn:hover {
+  color: #ccff90;
+}
+
+.spawn:active {
+  color: #64dd17;
+}
+
+.kill {
+  color: #d50000;
+}
+
+.kill:hover {
+  color: #ff8a80;
+}
+
+.kill:active {
+  color: #b71c1c;
+}
+
+.start {
+  color: #1de9b6;
+}
+
+.start:hover {
+  color: #a7ffeb;
+}
+
+.start:active {
+  color: #00bfa5;
+}
+
+.stop {
+  color: #ff9100;
+}
+
+.stop:hover {
+  color: #ffd180;
+}
+
+.stop:active {
+  color: #ff6d00;
+}
+
+table.commands {
+  border-spacing: 0;
+}
+
+tr.command {
+  border: none;
+  box-shadow: inset 0 0 10px 0 var(--color-primary);
+}
+
+@media screen and (max-width: 550px) {
+  tr.command td {
+    vertical-align: middle;
+    padding: 3.6363vw;
+    font-size: var(--font-size-h3);
+  }
+}
+
+@media screen and (min-width: 551px) {
+  tr.command td {
+    vertical-align: middle;
+    padding: 20px;
+    font-size: var(--font-size-h3);
+  }
+}
+
+tr.command td i {
+  user-select: none;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-bottom: 5px;
+  font-size: var(--font-size-h3);
+}

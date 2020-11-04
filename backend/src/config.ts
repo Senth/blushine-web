@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'development') {
 } else if (process.env.NODE_ENV === 'test') {
   configData = require('./config.testing').config
 } else {
-  throw new Error('Could not load config file')
+  configData = require('./config.production').config
 }
 
 class Config implements Config.Option {

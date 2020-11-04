@@ -73,10 +73,10 @@ class Action extends React.Component<ActionProps> {
     }
     fetch(url, requestInit)
       .then((response) => {
-        alert('success')
+        // TODO success
       })
       .catch((reason) => {
-        alert('failed')
+        // TODO error
       })
   }
 }

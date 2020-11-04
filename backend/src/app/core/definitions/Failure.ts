@@ -3,9 +3,9 @@ import { Immutable } from './Immutable'
 /**
  * A custom type of error that is solely for sending error messages as an output.
  */
-export class Error {
-  readonly errors: Immutable<Error.Info[]>
-  constructor(errors: Error.Info[]) {
+export class Failure {
+  readonly errors: Immutable<Failure.Info[]>
+  constructor(errors: Failure.Info[]) {
     // Remove duplicates
     this.errors = errors.reduce((array, item) => {
       const exists = !!array.find((object) => object.type === item.type && object.data === item.data)
@@ -13,21 +13,24 @@ export class Error {
         array.push(item)
       }
       return array
-    }, new Array<Error.Info>())
+    }, new Array<Failure.Info>())
   }
 
-  static create(type: Error.Types, data?: string): Error {
-    return new Error([{ type: type, data: data }])
+  static create(type: Failure.Types, data?: {}): Failure {
+    return new Failure([{ type: type, data: data }])
   }
 }
 
-export namespace Error {
+export namespace Failure {
   export interface Info {
     type: Types
-    data?: string
+    data?: {}
   }
 
   export enum Types {
     undefined = 'undefined',
+    commandPlayerNotFound = 'command-player-not-found',
+    commandPlayerActionInvalid = 'command-player-action-invalid',
+    minecraftConnection = 'minecraft-connection',
   }
 }

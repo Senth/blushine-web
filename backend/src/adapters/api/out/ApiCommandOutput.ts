@@ -3,7 +3,7 @@ import { Immutable } from '../../../app/core/definitions/Immutable'
 
 export interface ApiCommandOutput {}
 
-export namespace ApiCommandutput {
+export namespace ApiCommandOutput {
   export function fromInteractorOutput(interactorOutput: CommandOutput): Immutable<ApiCommandOutput> {
     return {}
   }

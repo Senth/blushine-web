@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express'
 import cors from 'cors'
 import { config } from '../../config'
 import { ExpressSerializer } from './ExpressSerializer'
-import { Error } from '../../app/core/definitions/Error'
+import { Failure } from '../../app/core/definitions/Failure'
 
 export enum ResponseCodes {
   OK = 200,
@@ -64,7 +64,7 @@ export class ExpressApiHelper {
         response.status(responseCode).send(ExpressSerializer.serialize(apiOutput))
       })
       .catch((reason) => {
-        if (reason instanceof Error) {
+        if (reason instanceof Failure) {
           response.status(ResponseCodes.BAD_REQUEST).send(reason)
         } else {
           response.sendStatus(ResponseCodes.INTERNAL_SERVER_ERROR)

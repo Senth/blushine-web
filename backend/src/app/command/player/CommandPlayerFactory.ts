@@ -150,7 +150,7 @@ class PlayerDirt extends PlayerCommand {
   constructor() {
     super({
       player: 'dirt',
-      location: { x: -821, y: 16, z: 651 },
+      location: { x: -820, y: 16, z: 651 },
       facing: { horizontal: 90, vertical: 65 },
     })
   }

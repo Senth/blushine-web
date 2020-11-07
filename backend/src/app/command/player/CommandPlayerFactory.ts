@@ -13,6 +13,7 @@ enum Actions {
 
 export class CommandPlayerFactory {
   private readonly players: PlayerCommand[] = [
+    new PlayerConcrete(),
     new PlayerDirt(),
     new PlayerPigman(),
     new PlayerSand(),
@@ -143,6 +144,21 @@ abstract class PlayerCommand implements PlayerCommand.Option {
    */
   kill(): string[] {
     return [`/player ${this.player} kill`]
+  }
+}
+
+class PlayerConcrete extends PlayerCommand {
+  constructor() {
+    super({
+      player: 'concrete',
+      location: { x: -853.5, y: 16.1, z: 646.5 },
+      facing: { horizontal: 15, vertical: 0 },
+      startAfterSpawn: true,
+    })
+  }
+
+  start(): string[] {
+    return [`/player ${this.player} use continuous`]
   }
 }
 

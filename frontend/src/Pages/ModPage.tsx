@@ -1,53 +1,92 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react"
+import { Link } from "react-router-dom"
 
 interface Props {}
 
 const ModPage: React.FC<Props> = (props) => {
   return (
-    <div className='content'>
+    <div className="content">
       <h1>Mods</h1>
-      <p>A list of all the server side mods and how you can use them.</p>
-      <h2>Server Mods</h2>
+      <h2>Client Mods</h2>
+      <p>
+        Mods I personally use, but not required to play on the server.
+        <br />
+        <a target="_blank" rel="noreferrer" href="/files/mods.zip">
+          Download the pack
+        </a>
+      </p>
       <dl>
-        <dt>
-          <a target='_blank' rel='noreferrer' href='https://www.curseforge.com/minecraft/mc-mods/automated-crafting'>
-            Automated Crafting
-          </a>
-        </dt>
-        <dd>Automates the crafting table. Less time spending on crafting items.</dd>
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/automated-crafting" name="Automated Crafting">
+          Automates the crafting table. Less time spending on crafting items.
+        </Mod>
 
-        <dt>
-          <a target='_blank' rel='noreferrer' href='https://www.curseforge.com/minecraft/mc-mods/dynmapforge'>
-            Dynmap
-          </a>
-        </dt>
-        <dd>
-          For our nice <Link to='/map'>map</Link> renderer.
-        </dd>
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/craftpresence" name="Craft Presence">
+          Adds rich information to your Discord profile.
+        </Mod>
 
-        <dt>
-          <a target='_blank' rel='noreferrer' href='https://www.curseforge.com/minecraft/mc-mods/lithium'>
-            Lithium
-          </a>
-        </dt>
-        <dd>Server optimizations to make the server run faster and smoother. Doesn't change behavior.</dd>
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/carpet" name="Carpet">
+          Mod with lots of options. See carpet section underneath.
+        </Mod>
 
-        <dt>
-          <a target='_blank' rel='noreferrer' href='https://www.curseforge.com/minecraft/mc-mods/phosphor'>
-            Phosphor
-          </a>
-        </dt>
-        <dd>
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/lambdynamiclights" name="Lamb Dynamic Lights">
+          Dynamic lighting, similar to Optifine's feature
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/light-overlay" name="Light Overlay">
+          Render blocks that are spawnable (togglable by pressing F8). Great for spawn proofing.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/litematica" name="Litematica">
+          Design your buildings or contraptions in creative. Save them in Litematica, and follow the blueprint when
+          building on the server.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/lithium" name="Lithium">
+          Client optimizations to make the client run faster and smoother. Doesn't change behavior.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/minihud" name="MiniHUD">
+          Render spawning spheres and other useful information
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/modmenu" name="Mod Menu">
+          A Menu for all mods.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/phosphor" name="Phosphor">
+          Client (lighting engine) optimizations to make the client run faster and smoother. Doesn't change behavior.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/sodium" name="Sodium">
+          Client rendering optimization mod. Like Optifine without a lot of settings.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/tweakeroo" name="Tweakeroo">
+          Lots of tweaks. I mainly use it for smart block placement and pressing through item frames.
+        </Mod>
+      </dl>
+      <h2>Server Mods</h2>
+      <p>A list of all the server side mods and how you can use them.</p>
+      <dl>
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/automated-crafting" name="Automated Crafting">
+          Automates the crafting table. Less time spending on crafting items.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/craftpresence" name="Craft Presence">
+          Adds rich information to your Discord profile.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/dynmapforge" name="Dynmap">
+          For our nice <Link to="/map">map</Link> renderer.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/lithium" name="Lithium">
+          Server optimizations to make the server run faster and smoother. Doesn't change behavior.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/phosphor" name="Phosphor">
           Server (lighting engine) optimizations to make the server run faster and smoother. Doesn't change behavior.
-        </dd>
-
-        <dt>
-          <a target='_blank' rel='noreferrer' href='https://www.curseforge.com/minecraft/mc-mods/carpet'>
-            Carpet
-          </a>
-        </dt>
-        <dd>Mod with lots of options. See carpet section underneath.</dd>
+        </Mod>
       </dl>
       <h3>Carpet Mod</h3>
       <p>
@@ -73,18 +112,18 @@ const ModPage: React.FC<Props> = (props) => {
             watch this video for more usages. Our server also has another keyword 'keep' that keeps one item in the
             shulker box.
             <iframe
-              className='tutorial'
-              src='https://www.youtube.com/embed/sEQPMNN5UGk'
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
-              title='Automatic Shulkerboxes - Vacuum and Restock'
+              className="tutorial"
+              src="https://www.youtube.com/embed/sEQPMNN5UGk"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+              title="Automatic Shulkerboxes - Vacuum and Restock"
               allowFullScreen
             ></iframe>
           </dd>
         </dl>
       </p>
       <h2>Datapacks</h2>
-      Most of the datapacks are from{' '}
-      <a target='_blank' rel='noreferrer' href='https://vanillatweaks.net/'>
+      Most of the datapacks are from{" "}
+      <a target="_blank" rel="noreferrer" href="https://vanillatweaks.net/">
         Vanilla Tweaks
       </a>
       .
@@ -96,11 +135,11 @@ const ModPage: React.FC<Props> = (props) => {
         <dd>
           Create your own armor statues. Same feature as in Hermitcraft. Watch this tutorial to get started.
           <iframe
-            className='tutorial'
-            src='https://www.youtube.com/embed/nV9-_RacnoI'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            className="tutorial"
+            src="https://www.youtube.com/embed/nV9-_RacnoI"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            title='Armor Stand Book Tutorial'
+            title="Armor Stand Book Tutorial"
           ></iframe>
         </dd>
 
@@ -145,6 +184,26 @@ const ModPage: React.FC<Props> = (props) => {
       </dl>
     </div>
   )
+}
+
+interface ModProps {
+  href: string
+  name: string
+}
+
+class Mod extends React.Component<ModProps> {
+  render() {
+    return (
+      <React.Fragment>
+        <dt>
+          <a target="_blank" rel="noreferrer" href={this.props.href}>
+            {this.props.name}
+          </a>
+        </dt>
+        <dd>{this.props.children}</dd>
+      </React.Fragment>
+    )
+  }
 }
 
 export default ModPage

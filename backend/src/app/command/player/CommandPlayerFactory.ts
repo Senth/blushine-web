@@ -176,7 +176,7 @@ abstract class PlayerNetherTreeFarm extends PlayerCommand {
   }
 
   start(): string[] {
-    return [`/player ${this.player} use continuous`]
+    return [`/player ${this.player} use continuous`, `/player ${this.player} attack interval 200`]
   }
 }
 

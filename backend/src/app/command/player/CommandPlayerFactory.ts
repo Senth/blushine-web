@@ -1,14 +1,14 @@
-import { Failure } from '../../core/definitions/Failure'
+import { Failure } from "../../core/definitions/Failure"
 
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
-type Player = 'sand' | 'dirt' | 'pigman' | 'shulker' | 'concrete'
+type Player = "sand" | "dirt" | "pigman" | "shulker" | "concrete"
 
 enum Actions {
-  spawn = 'spawn',
-  kill = 'kill',
-  start = 'start',
-  stop = 'stop',
+  spawn = "spawn",
+  kill = "kill",
+  start = "start",
+  stop = "stop",
 }
 
 export class CommandPlayerFactory {
@@ -67,9 +67,9 @@ export class CommandPlayerFactory {
 }
 
 enum Dimensions {
-  overworld = 'minecraft:overworld',
-  nether = 'minecraft:the_nether',
-  end = 'minecraft:the_end',
+  overworld = "minecraft:overworld",
+  nether = "minecraft:the_nether",
+  end = "minecraft:the_end",
 }
 
 namespace PlayerCommand {
@@ -116,6 +116,7 @@ abstract class PlayerCommand implements PlayerCommand.Option {
   spawn(): string[] {
     const command = [
       `/player ${this.player} spawn at ${this.location.x} ${this.location.y} ${this.location.z} facing ${this.facing.horizontal} ${this.facing.vertical} in ${this.dimension}`,
+      `/gamemode survival ${this.player}`,
     ]
 
     if (this.startAfterSpawn) {
@@ -150,7 +151,7 @@ abstract class PlayerCommand implements PlayerCommand.Option {
 class PlayerConcrete extends PlayerCommand {
   constructor() {
     super({
-      player: 'concrete',
+      player: "concrete",
       location: { x: -853.5, y: 16.1, z: 646.5 },
       facing: { horizontal: 15, vertical: 0 },
       startAfterSpawn: true,
@@ -165,7 +166,7 @@ class PlayerConcrete extends PlayerCommand {
 class PlayerDirt extends PlayerCommand {
   constructor() {
     super({
-      player: 'dirt',
+      player: "dirt",
       location: { x: -820, y: 16, z: 651 },
       facing: { horizontal: 90, vertical: 65 },
     })
@@ -179,7 +180,7 @@ class PlayerDirt extends PlayerCommand {
 class PlayerPigman extends PlayerCommand {
   constructor() {
     super({
-      player: 'pigman',
+      player: "pigman",
       location: { x: -1616.3, y: 175.1, z: -456.478 },
       facing: { horizontal: 90, vertical: 10 },
       dimension: Dimensions.nether,
@@ -195,7 +196,7 @@ class PlayerPigman extends PlayerCommand {
 class PlayerSand extends PlayerCommand {
   constructor() {
     super({
-      player: 'sand',
+      player: "sand",
       location: { x: -752, y: 183, z: 492 },
     })
   }
@@ -204,7 +205,7 @@ class PlayerSand extends PlayerCommand {
 class PlayerShulker extends PlayerCommand {
   constructor() {
     super({
-      player: 'shulker',
+      player: "shulker",
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
     })

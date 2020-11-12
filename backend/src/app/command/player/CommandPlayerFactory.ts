@@ -2,7 +2,7 @@ import { Failure } from "../../core/definitions/Failure"
 
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
-type Player = "sand" | "dirt" | "pigman" | "shulker" | "concrete"
+type Player = "crimson" | "concrete" | "dirt" | "pigman" | "sand" | "shulker" | "warped"
 
 enum Actions {
   spawn = "spawn",
@@ -14,10 +14,12 @@ enum Actions {
 export class CommandPlayerFactory {
   private readonly players: PlayerCommand[] = [
     new PlayerConcrete(),
+    new PlayerCrimson(),
     new PlayerDirt(),
     new PlayerPigman(),
     new PlayerSand(),
     new PlayerShulker(),
+    new PlayerWarped(),
   ]
 
   /**
@@ -163,6 +165,27 @@ class PlayerConcrete extends PlayerCommand {
   }
 }
 
+abstract class PlayerNetherTreeFarm extends PlayerCommand {
+  constructor(player: Player) {
+    super({
+      player: player,
+      location: { x: -826.5, y: 16, z: 620.5 },
+      facing: { horizontal: 180, vertical: 15 },
+      startAfterSpawn: true,
+    })
+  }
+
+  start(): string[] {
+    return [`/player ${this.player} use continuous`]
+  }
+}
+
+class PlayerCrimson extends PlayerNetherTreeFarm {
+  constructor() {
+    super("crimson")
+  }
+}
+
 class PlayerDirt extends PlayerCommand {
   constructor() {
     super({
@@ -209,5 +232,11 @@ class PlayerShulker extends PlayerCommand {
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
     })
+  }
+}
+
+class PlayerWarped extends PlayerNetherTreeFarm {
+  constructor() {
+    super("warped")
   }
 }

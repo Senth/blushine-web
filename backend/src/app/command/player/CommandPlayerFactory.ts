@@ -14,12 +14,12 @@ enum Actions {
 export class CommandPlayerFactory {
   private readonly players: PlayerCommand[] = [
     new PlayerConcrete(),
-    new PlayerCrimson(),
+    new PlayerNetherTreeFarm("crimson"),
     new PlayerDirt(),
     new PlayerPigman(),
     new PlayerSand(),
     new PlayerShulker(),
-    new PlayerWarped(),
+    new PlayerNetherTreeFarm("warped"),
   ]
 
   /**
@@ -150,6 +150,21 @@ abstract class PlayerCommand implements PlayerCommand.Option {
   }
 }
 
+class PlayerNetherTreeFarm extends PlayerCommand {
+  constructor(player: Player) {
+    super({
+      player: player,
+      location: { x: -826.5, y: 16, z: 620.5 },
+      facing: { horizontal: 180, vertical: 20 },
+      startAfterSpawn: true,
+    })
+  }
+
+  start(): string[] {
+    return [`/player ${this.player} use continuous`, `/player ${this.player} attack interval 60`]
+  }
+}
+
 class PlayerConcrete extends PlayerCommand {
   constructor() {
     super({
@@ -162,27 +177,6 @@ class PlayerConcrete extends PlayerCommand {
 
   start(): string[] {
     return [`/player ${this.player} use continuous`]
-  }
-}
-
-abstract class PlayerNetherTreeFarm extends PlayerCommand {
-  constructor(player: Player) {
-    super({
-      player: player,
-      location: { x: -826.5, y: 16, z: 620.5 },
-      facing: { horizontal: 180, vertical: 15 },
-      startAfterSpawn: true,
-    })
-  }
-
-  start(): string[] {
-    return [`/player ${this.player} use continuous`, `/player ${this.player} attack interval 200`]
-  }
-}
-
-class PlayerCrimson extends PlayerNetherTreeFarm {
-  constructor() {
-    super("crimson")
   }
 }
 
@@ -232,11 +226,5 @@ class PlayerShulker extends PlayerCommand {
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
     })
-  }
-}
-
-class PlayerWarped extends PlayerNetherTreeFarm {
-  constructor() {
-    super("warped")
   }
 }

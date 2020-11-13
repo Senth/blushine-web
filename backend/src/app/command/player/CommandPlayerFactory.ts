@@ -279,7 +279,7 @@ class PlayerWitch extends PlayerCommand {
     return [
       this.createSpawnString(this.center),
       `/player ${this.center.player} use`,
-      `/player ${this.center.player} kill`,
+      // `/player ${this.center.player} kill`,
     ]
   }
 

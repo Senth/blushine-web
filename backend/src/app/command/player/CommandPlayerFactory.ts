@@ -264,23 +264,15 @@ class PlayerWitch extends PlayerCommand {
   }
 
   start(): string[] {
-    return this.toggle()
+    return [this.createSpawnString(this.center), `/player ${this.center.player} use`]
   }
 
   stop(): string[] {
-    return this.toggle()
+    return [`/player ${this.center.player} kill`]
   }
 
   kill(): string[] {
     return [`/player ${this.north.player} kill`, `/player ${this.south.player} kill`]
-  }
-
-  toggle(): string[] {
-    return [
-      this.createSpawnString(this.center),
-      `/player ${this.center.player} use`,
-      // `/player ${this.center.player} kill`,
-    ]
   }
 
   createSpawnString(place: any): string {

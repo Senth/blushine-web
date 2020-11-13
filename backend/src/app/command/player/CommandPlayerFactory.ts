@@ -244,7 +244,7 @@ class PlayerWitch extends PlayerCommand {
   south = {
     player: "witches",
     location: { x: 14085.5, y: 184, z: -15377.5 },
-    facing: { horizontal: 180, vertical: 0 },
+    facing: { horizontal: 90, vertical: 0 },
   }
 
   constructor() {

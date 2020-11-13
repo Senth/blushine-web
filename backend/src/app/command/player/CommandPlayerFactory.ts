@@ -20,6 +20,7 @@ export class CommandPlayerFactory {
     new PlayerSand(),
     new PlayerShulker(),
     new PlayerNetherTreeFarm("warped"),
+    new PlayerWitch(),
   ]
 
   /**

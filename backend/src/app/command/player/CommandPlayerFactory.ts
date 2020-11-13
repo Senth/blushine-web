@@ -2,7 +2,7 @@ import { Failure } from "../../core/definitions/Failure"
 
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
-type Player = "crimson" | "concrete" | "dirt" | "pigman" | "sand" | "shulker" | "warped"
+type Player = "crimson" | "concrete" | "dirt" | "pigman" | "sand" | "shulker" | "warped" | "witch"
 
 enum Actions {
   spawn = "spawn",
@@ -226,5 +226,63 @@ class PlayerShulker extends PlayerCommand {
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
     })
+  }
+}
+
+class PlayerWitch extends PlayerCommand {
+  north = {
+    player: "witch",
+    location: { x: 14088.5, y: 184, z: -15516.5 },
+    facing: { horizontal: 0, vertical: 0 },
+  }
+  center = {
+    player: "witcher",
+    location: { x: 14104.5, y: 170.5, z: -15453.5 },
+    facing: { horizontal: 270, vertical: -10 },
+  }
+  south = {
+    player: "witches",
+    location: { x: 14085.5, y: 184, z: -15377.5 },
+    facing: { horizontal: 180, vertical: 0 },
+  }
+
+  constructor() {
+    super({
+      player: "witch",
+      location: { x: 0, y: 0, z: 0 },
+    })
+  }
+
+  spawn(): string[] {
+    return [
+      this.createSpawnString(this.north),
+      `/player ${this.north.player} attack interval 30`,
+      this.createSpawnString(this.south),
+      `/player ${this.south.player} attack interval 30`,
+    ]
+  }
+
+  start(): string[] {
+    return this.toggle()
+  }
+
+  stop(): string[] {
+    return this.toggle()
+  }
+
+  kill(): string[] {
+    return [`/player ${this.north.player} kill`, `/player ${this.south.player} kill`]
+  }
+
+  toggle(): string[] {
+    return [
+      this.createSpawnString(this.center),
+      `/player ${this.center.player} use`,
+      `/player ${this.center.player} kill`,
+    ]
+  }
+
+  createSpawnString(place: any): string {
+    return `/player ${place.player} spawn at ${place.location.x} ${place.location.y} ${place.location.z} facing ${place.facing.horizontal} ${place.facing.vertical} in ${this.dimension}`
   }
 }

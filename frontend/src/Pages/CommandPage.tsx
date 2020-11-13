@@ -19,6 +19,7 @@ const CommandPage: React.FC<Props> = (props) => {
         <Player name="Sand" />
         <Player name="Shulker" />
         <Player name="Warped" />
+        <Player name="Witch" />
       </table>
     </div>
   )

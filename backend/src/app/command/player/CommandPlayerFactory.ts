@@ -2,7 +2,7 @@ import { Failure } from "../../core/definitions/Failure"
 
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
-type Player = "crimson" | "concrete" | "dirt" | "pigman" | "sand" | "shulker" | "warped" | "witch"
+type Player = "crimson" | "concrete" | "dirt" | "pigman" | "sand" | "shulker" | "wart" | "warped" | "witch"
 
 enum Actions {
   spawn = "spawn",
@@ -20,6 +20,7 @@ export class CommandPlayerFactory {
     new PlayerSand(),
     new PlayerShulker(),
     new PlayerNetherTreeFarm("warped"),
+    new PlayerWart(),
     new PlayerWitch(),
   ]
 
@@ -227,6 +228,28 @@ class PlayerShulker extends PlayerCommand {
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
     })
+  }
+}
+
+class PlayerWart extends PlayerCommand {
+  constructor() {
+    super({
+      player: "wart",
+      location: { x: -764.5, y: 11, z: 529.5 },
+      facing: { horizontal: 0, vertical: -45 },
+    })
+  }
+
+  start(): string[] {
+    return [
+      `/player ${this.player} mount`,
+      `/player ${this.player} use continuous`,
+      `/player ${this.player} attack continuous`,
+    ]
+  }
+
+  stop(): string[] {
+    return [`/player ${this.player} stop`, `/player ${this.player} dismount`]
   }
 }
 

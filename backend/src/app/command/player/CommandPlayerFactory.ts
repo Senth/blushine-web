@@ -23,6 +23,7 @@ enum Actions {
 
 export class CommandPlayerFactory {
   private readonly players: PlayerCommand[] = [
+    new PlayerCobblestone(),
     new PlayerConcrete(),
     new PlayerNetherTreeFarm("crimson"),
     new PlayerDirt(),

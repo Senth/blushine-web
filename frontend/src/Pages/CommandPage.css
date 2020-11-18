@@ -61,6 +61,10 @@ tr.command {
     padding: 3.6363vw;
     font-size: var(--font-size-h3);
   }
+
+  td.command-name {
+    width: 36.3636vw;
+  }
 }
 
 @media screen and (min-width: 551px) {
@@ -68,6 +72,10 @@ tr.command {
     vertical-align: middle;
     padding: 20px;
     font-size: var(--font-size-h3);
+  }
+
+  td.command-name {
+    width: 200px;
   }
 }
 

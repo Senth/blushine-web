@@ -10,15 +10,25 @@ const CommandPage: React.FC<Props> = (props) => {
       <h1>Commands</h1>
       <p>This page is for running various commands on the server</p>
 
-      <h2>/player</h2>
+      <h2>Bots (/player command)</h2>
+      <h3>Community Farms</h3>
       <table className="commands">
+        <Player name="Shulker" />
+      </table>
+
+      <h3>Senth's Utility Area (for everyone)</h3>
+      <table className="commands">
+        <Player name="Cobblestone" />
         <Player name="Concrete" />
         <Player name="Crimson" />
         <Player name="Dirt" />
+        <Player name="Warped" />
+      </table>
+
+      <h3>Senth's Personal Farms</h3>
+      <table className="commands">
         <Player name="Pigman" />
         <Player name="Sand" />
-        <Player name="Shulker" />
-        <Player name="Warped" />
         <Player name="Wart" />
         <Player name="Witch" />
       </table>

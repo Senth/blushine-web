@@ -2,7 +2,17 @@ import { Failure } from "../../core/definitions/Failure"
 
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
-type Player = "crimson" | "concrete" | "dirt" | "pigman" | "sand" | "shulker" | "wart" | "warped" | "witch"
+type Player =
+  | "cobblestone"
+  | "concrete"
+  | "crimson"
+  | "dirt"
+  | "pigman"
+  | "sand"
+  | "shulker"
+  | "wart"
+  | "warped"
+  | "witch"
 
 enum Actions {
   spawn = "spawn",
@@ -164,6 +174,29 @@ class PlayerNetherTreeFarm extends PlayerCommand {
 
   start(): string[] {
     return [`/player ${this.player} use continuous`, `/player ${this.player} attack interval 60`]
+  }
+}
+
+class PlayerCobblestone extends PlayerCommand {
+  constructor() {
+    super({
+      player: "cobblestone",
+      location: { x: -815.5, y: 16, z: 641.5 },
+      facing: { horizontal: 90, vertical: 0 },
+      startAfterSpawn: true,
+    })
+  }
+
+  toggle(): string[] {
+    return [`/player ${this.player} use`]
+  }
+
+  start(): string[] {
+    return this.toggle()
+  }
+
+  stop(): string[] {
+    return this.toggle()
   }
 }
 

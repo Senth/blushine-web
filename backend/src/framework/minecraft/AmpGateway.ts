@@ -1,8 +1,8 @@
-import fetch, { RequestInit } from 'node-fetch'
-import { URL } from 'url'
-import { Failure } from '../../app/core/definitions/Failure'
-import { config } from '../../config'
-import { MinecraftGateway } from './MinecraftGateway'
+import fetch, { RequestInit } from "node-fetch"
+import { URL } from "url"
+import { Failure } from "../../app/core/definitions/Failure"
+import { config } from "../../config"
+import { MinecraftGateway } from "./MinecraftGateway"
 
 export class AmpGateway implements MinecraftGateway {
   private minecraftSessionId?: string
@@ -17,7 +17,7 @@ export class AmpGateway implements MinecraftGateway {
    * Login to the AMP Minecraft Module. This will set the minecraftSessionId
    */
   private async loginMinecraftModule(): Promise<void> {
-    return this.login('Blushine/API/Core/Login').then((sessionId) => {
+    return this.login("Blushine/API/Core/Login").then((sessionId) => {
       this.minecraftSessionId = sessionId
     })
   }
@@ -68,14 +68,18 @@ export class AmpGateway implements MinecraftGateway {
   }
 
   private async runCommand(command: string): Promise<void> {
-    const sessionId: string = this.minecraftSessionId || ''
+    const sessionId: string = this.minecraftSessionId || ""
     const body = new CommandBody(sessionId, command).toJson()
     const option = this.buildOptions(body)
-    return fetch(this.url('Blushine/API/Core/SendConsoleMessage'), option).then((response) => {
-      if (!response.ok) {
+    return fetch(this.url("Blushine/API/Core/SendConsoleMessage"), option)
+      .then((response) => {
+        if (!response.ok) {
+          throw Failure.create(Failure.Types.minecraftConnection)
+        }
+      })
+      .catch(() => {
         throw Failure.create(Failure.Types.minecraftConnection)
-      }
-    })
+      })
   }
 
   private url(uri: string): URL {
@@ -84,10 +88,10 @@ export class AmpGateway implements MinecraftGateway {
 
   private buildOptions(body?: string): RequestInit {
     return {
-      method: 'POST',
+      method: "POST",
       body: body,
       headers: {
-        Accept: 'application/json',
+        Accept: "application/json",
       },
     }
   }
@@ -106,7 +110,7 @@ abstract class LoggedInBody extends Body {
 }
 
 class LoginBody extends Body {
-  readonly token = ''
+  readonly token = ""
   readonly rememberMe = false
 
   constructor(readonly username: string, readonly password: string) {

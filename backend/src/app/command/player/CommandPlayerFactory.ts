@@ -10,6 +10,7 @@ type Player =
   | "pigman"
   | "sand"
   | "shulker"
+  | "squid"
   | "wart"
   | "warped"
   | "witch"
@@ -30,6 +31,7 @@ export class CommandPlayerFactory {
     new PlayerPigman(),
     new PlayerSand(),
     new PlayerShulker(),
+    new PlayerSquid(),
     new PlayerNetherTreeFarm("warped"),
     new PlayerWart(),
     new PlayerWitch(),
@@ -261,6 +263,15 @@ class PlayerShulker extends PlayerCommand {
       player: "shulker",
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
+    })
+  }
+}
+
+class PlayerSquid extends PlayerCommand {
+  constructor() {
+    super({
+      player: "squid",
+      location: { x: -339.5, y: 51.1, z: 2370.5 },
     })
   }
 }

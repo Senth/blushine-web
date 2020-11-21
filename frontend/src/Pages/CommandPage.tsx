@@ -13,6 +13,7 @@ const CommandPage: React.FC<Props> = (props) => {
       <h3>Community farms</h3>
       <table className="commands">
         <Player name="Shulker" />
+        <Player name="Squid" />
       </table>
       <h3>Senth's utility area</h3>
       These are available for everyone to use :)

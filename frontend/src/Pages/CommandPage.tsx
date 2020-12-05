@@ -12,6 +12,7 @@ const CommandPage: React.FC<Props> = (props) => {
       <h2>Bots</h2>
       <h3>Community farms</h3>
       <table className="commands">
+        <Player name="Bee" />
         <Player name="Shulker" />
         <Player name="Squid" />
       </table>

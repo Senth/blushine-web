@@ -3,6 +3,7 @@ import { Failure } from "../../core/definitions/Failure"
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
 type Player =
+  | "bee"
   | "cobblestone"
   | "concrete"
   | "crimson"
@@ -24,6 +25,7 @@ enum Actions {
 
 export class CommandPlayerFactory {
   private readonly players: PlayerCommand[] = [
+    new PlayerBee(),
     new PlayerCobblestone(),
     new PlayerConcrete(),
     new PlayerNetherTreeFarm("crimson"),
@@ -177,6 +179,16 @@ class PlayerNetherTreeFarm extends PlayerCommand {
 
   start(): string[] {
     return [`/player ${this.player} use continuous`, `/player ${this.player} attack interval 60`]
+  }
+}
+
+class PlayerBee extends PlayerCommand {
+  constructor() {
+    super({
+      player: "bee",
+      location: { x: 112.5, y: 197, z: 62.5 },
+      dimension: Dimensions.end,
+    })
   }
 }
 

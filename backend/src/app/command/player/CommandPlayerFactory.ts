@@ -304,7 +304,7 @@ class PlayerStripper extends PlayerCommand {
   }
 
   start(): string[] {
-    return [`/player ${this.player} use continuous`, `/player ${this.player} attack continuous`]
+    return [`/player ${this.player} use continuous`]
   }
 
   stop(): string[] {

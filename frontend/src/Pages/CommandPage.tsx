@@ -1,6 +1,6 @@
-import React from "react"
-import "./CommandPage.css"
-import { config } from "../config"
+import React from 'react'
+import './CommandPage.css'
+import { config } from '../config'
 
 interface Props {}
 
@@ -23,6 +23,7 @@ const CommandPage: React.FC<Props> = (props) => {
         <Player name="Concrete" />
         <Player name="Crimson" />
         <Player name="Dirt" />
+        <Player name="Stripper" />
         <Player name="Warped" />
       </table>
       <h3>Senth's personal farms</h3>
@@ -71,7 +72,7 @@ class Action extends React.Component<ActionProps> {
   }
 
   render() {
-    const className = "material-icons " + this.props.action
+    const className = 'material-icons ' + this.props.action
     return (
       <td>
         <i className={className} onClick={this.execute}>
@@ -84,7 +85,7 @@ class Action extends React.Component<ActionProps> {
   execute() {
     const url = config.api.url + `/player/${this.props.player}/action/${this.props.action}`
     const requestInit: RequestInit = {
-      method: "post",
+      method: 'post',
     }
     fetch(url, requestInit)
       .then((response) => {

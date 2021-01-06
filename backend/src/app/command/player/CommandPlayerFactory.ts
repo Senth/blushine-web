@@ -1,26 +1,27 @@
-import { Failure } from "../../core/definitions/Failure"
+import { Failure } from '../../core/definitions/Failure'
 
 type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
 type Player =
-  | "bee"
-  | "cobblestone"
-  | "concrete"
-  | "crimson"
-  | "dirt"
-  | "pigman"
-  | "sand"
-  | "shulker"
-  | "squid"
-  | "wart"
-  | "warped"
-  | "witch"
+  | 'bee'
+  | 'cobblestone'
+  | 'concrete'
+  | 'crimson'
+  | 'dirt'
+  | 'pigman'
+  | 'sand'
+  | 'shulker'
+  | 'squid'
+  | 'stripper'
+  | 'wart'
+  | 'warped'
+  | 'witch'
 
 enum Actions {
-  spawn = "spawn",
-  kill = "kill",
-  start = "start",
-  stop = "stop",
+  spawn = 'spawn',
+  kill = 'kill',
+  start = 'start',
+  stop = 'stop',
 }
 
 export class CommandPlayerFactory {
@@ -28,13 +29,14 @@ export class CommandPlayerFactory {
     new PlayerBee(),
     new PlayerCobblestone(),
     new PlayerConcrete(),
-    new PlayerNetherTreeFarm("crimson"),
+    new PlayerNetherTreeFarm('crimson'),
     new PlayerDirt(),
     new PlayerPigman(),
     new PlayerSand(),
     new PlayerShulker(),
     new PlayerSquid(),
-    new PlayerNetherTreeFarm("warped"),
+    new PlayerStripper(),
+    new PlayerNetherTreeFarm('warped'),
     new PlayerWart(),
     new PlayerWitch(),
   ]
@@ -86,9 +88,9 @@ export class CommandPlayerFactory {
 }
 
 enum Dimensions {
-  overworld = "minecraft:overworld",
-  nether = "minecraft:the_nether",
-  end = "minecraft:the_end",
+  overworld = 'minecraft:overworld',
+  nether = 'minecraft:the_nether',
+  end = 'minecraft:the_end',
 }
 
 namespace PlayerCommand {
@@ -185,7 +187,7 @@ class PlayerNetherTreeFarm extends PlayerCommand {
 class PlayerBee extends PlayerCommand {
   constructor() {
     super({
-      player: "bee",
+      player: 'bee',
       location: { x: 112.5, y: 197, z: 62.5 },
       dimension: Dimensions.end,
     })
@@ -195,7 +197,7 @@ class PlayerBee extends PlayerCommand {
 class PlayerCobblestone extends PlayerCommand {
   constructor() {
     super({
-      player: "cobblestone",
+      player: 'cobblestone',
       location: { x: -815.5, y: 16, z: 641.5 },
       facing: { horizontal: 90, vertical: 0 },
       startAfterSpawn: true,
@@ -218,7 +220,7 @@ class PlayerCobblestone extends PlayerCommand {
 class PlayerConcrete extends PlayerCommand {
   constructor() {
     super({
-      player: "concrete",
+      player: 'concrete',
       location: { x: -853.5, y: 16.1, z: 646.5 },
       facing: { horizontal: 15, vertical: 0 },
       startAfterSpawn: true,
@@ -233,7 +235,7 @@ class PlayerConcrete extends PlayerCommand {
 class PlayerDirt extends PlayerCommand {
   constructor() {
     super({
-      player: "dirt",
+      player: 'dirt',
       location: { x: -820, y: 16, z: 651 },
       facing: { horizontal: 90, vertical: 65 },
     })
@@ -247,7 +249,7 @@ class PlayerDirt extends PlayerCommand {
 class PlayerPigman extends PlayerCommand {
   constructor() {
     super({
-      player: "pigman",
+      player: 'pigman',
       location: { x: -1616.3, y: 175.1, z: -456.478 },
       facing: { horizontal: 90, vertical: 10 },
       dimension: Dimensions.nether,
@@ -263,7 +265,7 @@ class PlayerPigman extends PlayerCommand {
 class PlayerSand extends PlayerCommand {
   constructor() {
     super({
-      player: "sand",
+      player: 'sand',
       location: { x: -752, y: 183, z: 492 },
     })
   }
@@ -272,7 +274,7 @@ class PlayerSand extends PlayerCommand {
 class PlayerShulker extends PlayerCommand {
   constructor() {
     super({
-      player: "shulker",
+      player: 'shulker',
       location: { x: -521, y: 195, z: 1061 },
       dimension: Dimensions.end,
     })
@@ -282,16 +284,30 @@ class PlayerShulker extends PlayerCommand {
 class PlayerSquid extends PlayerCommand {
   constructor() {
     super({
-      player: "squid",
+      player: 'squid',
       location: { x: -339.5, y: 51.1, z: 2370.5 },
     })
+  }
+}
+
+class PlayerStripper extends PlayerCommand {
+  constructor() {
+    super({
+      player: 'stripper',
+      location: { x: -853.5, y: 27, z: 648.5 },
+      facing: { horizontal: 270, vertical: 65 },
+    })
+  }
+
+  start(): string[] {
+    return [`/player ${this.player} use continuous`, `/player ${this.player} attack continuous`]
   }
 }
 
 class PlayerWart extends PlayerCommand {
   constructor() {
     super({
-      player: "wart",
+      player: 'wart',
       location: { x: -764.5, y: 11, z: 529.5 },
       facing: { horizontal: 0, vertical: -45 },
     })
@@ -312,24 +328,24 @@ class PlayerWart extends PlayerCommand {
 
 class PlayerWitch extends PlayerCommand {
   north = {
-    player: "witch",
+    player: 'witch',
     location: { x: 14088.5, y: 184, z: -15516.5 },
     facing: { horizontal: 0, vertical: 0 },
   }
   center = {
-    player: "witcher",
+    player: 'witcher',
     location: { x: 14104.5, y: 170.5, z: -15453.5 },
     facing: { horizontal: 270, vertical: -10 },
   }
   south = {
-    player: "witches",
+    player: 'witches',
     location: { x: 14085.5, y: 184, z: -15377.5 },
     facing: { horizontal: 90, vertical: 0 },
   }
 
   constructor() {
     super({
-      player: "witch",
+      player: 'witch',
       location: { x: 0, y: 0, z: 0 },
     })
   }

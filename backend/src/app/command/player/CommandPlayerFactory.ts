@@ -330,7 +330,7 @@ class PlayerWart extends PlayerCommand {
   }
 
   stop(): string[] {
-    return [`/player ${this.player} stop`, `/player ${this.player} dismount`]
+    return [`/player ${this.player} stop`]
   }
 }
 

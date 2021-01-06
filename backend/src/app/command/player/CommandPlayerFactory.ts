@@ -4,6 +4,7 @@ type Location = { x: number; y: number; z: number }
 type Facing = { horizontal: number; vertical: number }
 type Player =
   | 'bee'
+  | 'bomber'
   | 'cobblestone'
   | 'concrete'
   | 'crimson'
@@ -27,6 +28,7 @@ enum Actions {
 export class CommandPlayerFactory {
   private readonly players: PlayerCommand[] = [
     new PlayerBee(),
+    new PlayerBomber(),
     new PlayerCobblestone(),
     new PlayerConcrete(),
     new PlayerNetherTreeFarm('crimson'),
@@ -190,6 +192,15 @@ class PlayerBee extends PlayerCommand {
       player: 'bee',
       location: { x: 112.5, y: 197, z: 62.5 },
       dimension: Dimensions.end,
+    })
+  }
+}
+
+class PlayerBomber extends PlayerCommand {
+  constructor() {
+    super({
+      player: 'bomber',
+      location: { x: -453.5, y: 70, z: -821.5 },
     })
   }
 }

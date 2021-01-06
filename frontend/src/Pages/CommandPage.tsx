@@ -33,6 +33,10 @@ const CommandPage: React.FC<Props> = (props) => {
         <Player name="Wart" />
         <Player name="Witch" />
       </table>
+      <h3>Demeter's Bots</h3>
+      <table className="commands">
+        <Player name="Bomber" />
+      </table>
     </div>
   )
 }

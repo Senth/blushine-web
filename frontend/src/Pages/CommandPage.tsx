@@ -22,14 +22,14 @@ const CommandPage: React.FC<Props> = (props) => {
         <Player name="Cobblestone" />
         <Player name="Concrete" />
         <Player name="Crimson" />
-        <Player name="Dirt" />
-        <Player name="Stripper" />
         <Player name="Warped" />
       </table>
       <h3>Senth's personal farms</h3>
       <table className="commands">
+        <Player name="Dirt" />
         <Player name="Pigman" />
         <Player name="Sand" />
+        <Player name="Stripper" />
         <Player name="Wart" />
         <Player name="Witch" />
       </table>

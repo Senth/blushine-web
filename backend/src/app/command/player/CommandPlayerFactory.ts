@@ -244,6 +244,10 @@ class PlayerDirt extends PlayerCommand {
   start(): string[] {
     return [`/player ${this.player} use continuous`, `/player ${this.player} attack continuous`]
   }
+
+  stop(): string[] {
+    return [`/player ${this.player} swapHands`]
+  }
 }
 
 class PlayerPigman extends PlayerCommand {
@@ -301,6 +305,10 @@ class PlayerStripper extends PlayerCommand {
 
   start(): string[] {
     return [`/player ${this.player} use continuous`, `/player ${this.player} attack continuous`]
+  }
+
+  stop(): string[] {
+    return [`/player ${this.player} swapHands`]
   }
 }
 

@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 interface Props {}
 
@@ -72,8 +72,8 @@ const ModPage: React.FC<Props> = (props) => {
           Automates the crafting table. Less time spending on crafting items.
         </Mod>
 
-        <Mod href="https://www.curseforge.com/minecraft/mc-mods/craftpresence" name="Craft Presence">
-          Adds rich information to your Discord profile.
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/craftpresence" name="Carpet">
+          Adds extra features to the server, see the Carpet Mod section below.
         </Mod>
 
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/dynmapforge" name="Dynmap">
@@ -122,7 +122,7 @@ const ModPage: React.FC<Props> = (props) => {
         </dl>
       </p>
       <h2>Datapacks</h2>
-      Most of the datapacks are from{" "}
+      Most of the datapacks are from{' '}
       <a target="_blank" rel="noreferrer" href="https://vanillatweaks.net/">
         Vanilla Tweaks
       </a>

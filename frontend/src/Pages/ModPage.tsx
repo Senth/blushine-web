@@ -9,10 +9,22 @@ const ModPage: React.FC<Props> = (props) => {
       <h1>Mods</h1>
       <h2>Client Mods</h2>
       <p>
-        Mods I personally use, but not required to play on the server.
+        Mods I personally use, but not required to play on the server. You will need to install the{' '}
+        <a target="_blank" rel="noreferrer" href="https://fabricmc.net/use/">
+          Fabric launcher
+        </a>{' '}
+        to use these mods.
         <br />
         <a target="_blank" rel="noreferrer" href="/files/mods.zip">
-          Download the pack
+          Download client mods
+        </a>
+      </p>
+      <p>
+        I also use this resource pack to get nicer textures. Feel free to download and use it. To use it place the zip
+        file in the resourcepacks folder.
+        <br />
+        <a target="_blank" rel="noreferrer" href="/files/resource_pack.zip">
+          Download resource pack
         </a>
       </p>
       <dl>
@@ -28,12 +40,16 @@ const ModPage: React.FC<Props> = (props) => {
           Mod with lots of options. See carpet section underneath.
         </Mod>
 
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/item-scroller" name="Item Scroller">
+          Exceptionally useful mod for moving items between inventory and chest, and bulk crafting.
+        </Mod>
+
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/lambdynamiclights" name="Lamb Dynamic Lights">
           Dynamic lighting, similar to Optifine's feature
         </Mod>
 
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/light-overlay" name="Light Overlay">
-          Render blocks that are spawnable (togglable by pressing F8). Great for spawn proofing.
+          Render blocks that are spawnable (togglable by pressing F7). Great for spawn proofing.
         </Mod>
 
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/litematica" name="Litematica">
@@ -62,7 +78,14 @@ const ModPage: React.FC<Props> = (props) => {
         </Mod>
 
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/tweakeroo" name="Tweakeroo">
-          Lots of tweaks. I mainly use it for smart block placement and pressing through item frames.
+          Lots of options, but I mainly use it for smart block placement and pressing through item frames.
+          <iframe
+            className="tutorial"
+            title="Tweakeroo Tutorial"
+            src="https://www.youtube.com/embed/v2YF7F7O0Ms?start=167"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </Mod>
       </dl>
       <h2>Server Mods</h2>

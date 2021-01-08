@@ -200,7 +200,7 @@ class PlayerBomber extends PlayerCommand {
   constructor() {
     super({
       player: 'bomber',
-      location: { x: -453.5, y: 70, z: -821.5 },
+      location: { x: -454.5, y: 64, z: -822.5 },
     })
   }
 }

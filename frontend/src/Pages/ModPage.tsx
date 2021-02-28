@@ -28,6 +28,10 @@ const ModPage: React.FC<Props> = (props) => {
         </a>
       </p>
       <dl>
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/advancementinfo" name="Advancement Info">
+          Larger advancement window (useful for Blaze and Cave's advancement pack).
+        </Mod>
+
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/automated-crafting" name="Automated Crafting">
           Automates the crafting table. Less time spending on crafting items.
         </Mod>
@@ -165,6 +169,9 @@ const ModPage: React.FC<Props> = (props) => {
             title="Armor Stand Book Tutorial"
           ></iframe>
         </dd>
+
+        <dt>Blaze and Cave's Advancement Pack</dt>
+        <dd>Adds over 850 advancements to the game.</dd>
 
         <dt>Droppers to Dispensers</dt>
         <dd>Allows you to craft Disperser with 1 dropper, 3 sticks, and 3 string.</dd>

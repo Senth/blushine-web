@@ -9,15 +9,18 @@ const ModPage: React.FC<Props> = (props) => {
       <h1>Mods</h1>
       <h2>Client Mods</h2>
       <p>
-        Mods I personally use, but not required to play on the server. You will need to install the{' '}
-        <a target="_blank" rel="noreferrer" href="https://fabricmc.net/use/">
-          Fabric launcher
-        </a>{' '}
-        to use these mods.
+        Mods I personally use, but not required to play on the server. Follow the tutorial to install these mods.
         <br />
         <a target="_blank" rel="noreferrer" href="/files/mods.zip">
           Download client mods
         </a>
+        <iframe
+          className="tutorial"
+          src="https://www.youtube.com/embed/D-woOfkNmaw"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+          title="Automatic Shulkerboxes - Vacuum and Restock"
+          allowFullScreen
+        ></iframe>
       </p>
       <p>
         I also use this resource pack to get nicer textures. Feel free to download and use it. To use it place the zip

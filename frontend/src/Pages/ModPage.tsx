@@ -80,6 +80,10 @@ const ModPage: React.FC<Props> = (props) => {
           Client (lighting engine) optimizations to make the client run faster and smoother. Doesn't change behavior.
         </Mod>
 
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat" name="Simple Voice Chat">
+          Adds proximity voice chat for those that use this mod :D
+        </Mod>
+
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/sodium" name="Sodium">
           Client rendering optimization mod. Like Optifine without a lot of settings.
         </Mod>
@@ -116,6 +120,10 @@ const ModPage: React.FC<Props> = (props) => {
 
         <Mod href="https://www.curseforge.com/minecraft/mc-mods/phosphor" name="Phosphor">
           Server (lighting engine) optimizations to make the server run faster and smoother. Doesn't change behavior.
+        </Mod>
+
+        <Mod href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat" name="Simple Voice Chat">
+          Adds proximity voice chat for those that use this mod :D
         </Mod>
       </dl>
       <h3>Carpet Mod</h3>
